@@ -1,18 +1,13 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main : MonoBehaviour
+public class GameApp
 {
-    // Start is called before the first frame update
-    void Start()
+    [RuntimeInitializeOnLoadMethod]
+    static void Bootstrap()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var MyGameManager = new GameObject("Game");
+        MyGameManager.AddComponent<GameManager>();
     }
 }
