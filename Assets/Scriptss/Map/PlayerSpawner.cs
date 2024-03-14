@@ -6,13 +6,15 @@ public class PlayerSpawner : MonoBehaviour
 {
     public enum CardinalDirection
     {
-        North,
-        East,
-        South,
-        West
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
     }
 
     public CardinalDirection Direction;
+    public int TargetRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,14 @@ public class PlayerSpawner : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.transform.parent.transform.parent.name);
+        if (other.transform.parent.transform.parent.name == "Player(Clone)")
+        {
+            GameManager.Instance.SetRoom(TargetRoom, Direction);
+        }
     }
 }

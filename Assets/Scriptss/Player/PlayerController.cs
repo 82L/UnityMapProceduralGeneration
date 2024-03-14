@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ApplyRotation();
-        ApplyGravity();
+        // ApplyGravity();
         ApplyMovement();
     }
 
@@ -47,10 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-
-
-        _yVelocity += gravity * gravityMultiplier * Time.deltaTime;
-        _direction.y = _yVelocity;
+        _direction.y = 0;
 
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
