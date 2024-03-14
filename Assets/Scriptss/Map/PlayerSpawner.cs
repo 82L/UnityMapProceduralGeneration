@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    public enum CardinalDirection
+    {
+        North,
+        East,
+        South,
+        West
+    }
+
+    public CardinalDirection Direction;
     // Start is called before the first frame update
     void Start()
     {
