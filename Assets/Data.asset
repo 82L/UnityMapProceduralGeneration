@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c9cde4822e4062b6e4550e222608a3, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  numberOfTiles: 20
+  seed: 0
+  rooms1Doors:
+  - data: {fileID: 3438117288509192261, guid: 44eb6d05fc1f109468f9ee3878a25491, type: 3}
+    apparitionFrequency: 1
+  rooms2DoorsI:
+  - data: {fileID: 2106011051315815510, guid: 8bccd0cd4ad28c540a4fec1a6aecd57f, type: 3}
+    apparitionFrequency: 1
+  rooms2DoorsL:
+  - data: {fileID: 2106011051315815510, guid: 6fc593a7b5d42d14caa2bf8cf6906a4e, type: 3}
+    apparitionFrequency: 1
+  rooms3Doors:
+  - data: {fileID: 2106011051315815510, guid: 6e2932e3d399a214493ec586a9e9a5a9, type: 3}
+    apparitionFrequency: 1
+  rooms4Doors:
+  - data: {fileID: 2106011051315815510, guid: 747a1ff6905cf2c4d84408160b072b3e, type: 3}
+    apparitionFrequency: 1
