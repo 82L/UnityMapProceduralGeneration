@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
     private void ApplyMovement()
     {
         _direction.y = 0;

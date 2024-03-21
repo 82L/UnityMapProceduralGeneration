@@ -80,14 +80,18 @@ public static class MapGenerator
       List<int2> l_roomPositions = new ();
       List<int2> l_possibleCoordinates = new () {new int2(0,0)};
       var max = new int2(0, 0);
+      
+      // Adding p_number of room
       for (int i = 0; i < p_numberOfRooms; i++)
       {
          int index;
+         //get index of room
          do
          {
             index = Random.Range(0, l_possibleCoordinates.Count);
 
          } while (!TestCoordinateApparitionChances(l_possibleCoordinates[index], l_roomPositions));
+         
          int2 l_newRoomCoordinates = l_possibleCoordinates[index];
          if (l_roomPositions.Contains(l_newRoomCoordinates))
          {
@@ -118,6 +122,12 @@ public static class MapGenerator
       p_possibleCoordinates = p_possibleCoordinates.Distinct().ToList();
    }
 
+   /// <summary>
+   ///  Test If coordinate can appear
+   /// </summary>
+   /// <param name="p_coordinateToTest"></param>
+   /// <param name="p_currentRooms"></param>
+   /// <returns></returns>
    private static bool TestCoordinateApparitionChances(int2 p_coordinateToTest, List<int2> p_currentRooms)
    {
       int l_numberOfNeighbors = 0;
