@@ -11,17 +11,12 @@ public class PlayerFactory
     {
         if (Player == null)
         {
-            PlayerSpawner[] playerStarts = GameObject.FindObjectsOfType<PlayerSpawner>();
-            Vector3 startLocation = Vector3.zero;
-
-            if (playerStarts.Length >= 0)
-                startLocation = playerStarts[0].transform.position;
-
-            startLocation.y += 1f;
+            Vector3 StartLocation = Vector3.zero;
+            StartLocation.y = 2f;
 
             GameObject PlayerPrefab = Addressables.LoadAssetAsync<GameObject>("Assets/Models/Prefabs/Player/Player.prefab").WaitForCompletion();
             Player = GameObject.Instantiate(PlayerPrefab);
-            Player.transform.position = startLocation;
+            Player.transform.position = StartLocation;
         }
 
         return Player;
