@@ -9,7 +9,7 @@ public class PlayerFactory
 
     public static GameObject GetOrCreatePlayer()
     {
-        if (Player == null)
+        if (Player is null)
         {
             Vector3 StartLocation = Vector3.zero;
             StartLocation.y = 2f;
@@ -24,7 +24,7 @@ public class PlayerFactory
 
     public static void ResetPlayer()
     {
-        if (Player != null)
+        if (Player is not null)
         {
             GameObject.Destroy(Player.gameObject);
             Player = null;
