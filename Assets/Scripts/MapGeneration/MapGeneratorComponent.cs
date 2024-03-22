@@ -18,6 +18,7 @@ namespace DefaultNamespace
             {
                 GameObject go = Instantiate(roomData.Room.data, transform);
                 go.transform.position = new Vector3(roomData.Coordinates.x, 0, roomData.Coordinates.y);
+                go.transform.rotation = Quaternion.Euler(0, roomData.Rotation, 0);
             }
         }
         

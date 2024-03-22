@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -39,20 +40,38 @@ public class MapGenerationData : ScriptableObject
         return RetrieveRoom(l_selectedRoomCollection);
     }
 
+    /// <summary>
+    /// Get the room type of a room
+    /// </summary>
+    /// <param name="doorNeighbors">neighbors of room</param>
+    /// <returns>return the room type</returns>
+    /// <exception cref="NotImplementedException">Shouldn't  have more than 4 neighbor, it's a grid !</exception>
+    public static RoomType GetRoomType(IReadOnlyCollection<int2> doorNeighbors)
+    {
+        return doorNeighbors.Count switch
+        {
+            1 => RoomType.Door1,
+            2 when doorNeighbors.First().Equals(doorNeighbors.Last() * -1) => RoomType.Door2I,
+            2 => RoomType.Door2L,
+            3 => RoomType.Door3,
+            4 => RoomType.Door4,
+            _ => throw new NotImplementedException()
+        };
+    }
+
     private Room RetrieveRoom(List<Room> p_roomCollection)
     {
-        bool l_isSelected = false;
         int l_index = 0;
-        do
+        int iterationCount = 0;
+        while (true)
         {
             l_index = Random.Range(0, p_roomCollection.Count);
             float l_appearanceTest = Random.Range(0f, 1f);
             if (l_appearanceTest <= p_roomCollection[l_index].apparitionFrequency)
-            {
-                l_isSelected = true;
-            }
-
-        } while (!l_isSelected);
+                break;
+            if(++iterationCount>100)
+                break;
+        }
 
         return p_roomCollection[l_index];
     }
