@@ -108,7 +108,6 @@ public static class MapGenerator
             index = Random.Range(0, l_possibleCoordinates.Count);
             if (TestCoordinateApparitionChances(l_possibleCoordinates[index], l_roomPositions)) 
                break;
-            Debug.Log(iterationCount);
             if (++iterationCount > 100)  
                break;
          }
